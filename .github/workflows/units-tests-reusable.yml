@@ -22,6 +22,10 @@ on:
         required: false
         default: false
         type: boolean
+    secrets:
+      CODECOV_TOKEN:
+        description: 'Codecov upload token.'
+        required: true
 
 jobs:
   unit-test:
@@ -69,4 +73,5 @@ jobs:
         if: inputs.collectCoverage
         uses: codecov/codecov-action@v4.5.0
         with:
+          verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}

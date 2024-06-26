@@ -297,11 +297,8 @@ export class LoadNodesAndCredentials {
 				this.known.credentials[type] = {
 					className,
 					sourcePath: path.join(directory, sourcePath),
-					supportedNodes:
-						loader instanceof PackageDirectoryLoader
-							? supportedNodes?.map((nodeName) => `${loader.packageName}.${nodeName}`)
-							: undefined,
 					extends: extendsArr,
+					supportedNodes,
 				};
 			}
 		}

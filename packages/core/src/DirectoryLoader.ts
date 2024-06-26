@@ -181,11 +181,15 @@ export abstract class DirectoryLoader {
 			}
 		}
 
+		const supportedNodes = this.nodesByCredential[tempCredential.name]?.map(
+			(nodeName) => `${this.packageName}.${nodeName}`,
+		);
+
 		this.known.credentials[tempCredential.name] = {
 			className: credentialClassName,
 			sourcePath: filePath,
 			extends: tempCredential.extends,
-			supportedNodes: this.nodesByCredential[tempCredential.name],
+			supportedNodes,
 		};
 
 		this.credentialTypes[tempCredential.name] = {

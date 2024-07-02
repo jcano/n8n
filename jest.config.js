@@ -39,7 +39,7 @@ const config = {
 
 if (process.env.CI === 'true') {
 	config.workerIdleMemoryLimit = 1024;
-	config.coverageReporters = ['lcovonly'];
+	config.coverageReporters = ['cobertura'];
 }
 
 module.exports = config;

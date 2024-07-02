@@ -16,12 +16,15 @@ const vitestConfig = defineConfig({
 					coverage: {
 						enabled: true,
 						provider: 'v8',
-						reporter: process.env.CI === 'true' ? 'lcovonly' : 'text-summary',
+						reporter: process.env.CI === 'true' ? 'cobertura' : 'text-summary',
 						all: true,
 					},
-				}
+			  }
 			: {}),
 	},
 }) as UserConfig;
 
-export default mergeConfig(viteConfig, vitestConfig);
+export default mergeConfig(
+	viteConfig,
+	vitestConfig,
+);
